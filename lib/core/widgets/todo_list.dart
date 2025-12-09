@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CuteTodoPage extends StatelessWidget {
   const CuteTodoPage({super.key});
@@ -10,6 +11,7 @@ class CuteTodoPage extends StatelessWidget {
       body: Center(
         child: Container(
           width: 330,
+          height: 500,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -53,20 +55,51 @@ class CuteTodoPage extends StatelessWidget {
               const SizedBox(height: 10),
 
               // Input Add Task
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "Add task...",
-                  filled: true,
-                  fillColor: Colors.white,
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 12,
+              Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      
+                      decoration: InputDecoration(
+                        hintText: "Add task...",
+                        prefix: const SizedBox(width: 8),
+                        hintStyle: GoogleFonts.mansalva(letterSpacing: 2),
+                        // disabledBorder: UnderlineInputBorder(
+                        //   borderSide: BorderSide(color: const Color.fromARGB(255, 255, 0, 0)),
+                        // ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 12,
+                        ),
+                        
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.black, width: 2),
+                          
+                        ),
+                        // border: OutlineInputBorder(
+                        //   borderSide: const BorderSide(width: 1),
+                        //   borderRadius: BorderRadius.circular(6),
+                        // ),
+                      ),
+                    ),
                   ),
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 1),
-                    borderRadius: BorderRadius.circular(6),
+                  SizedBox(width: 10),
+                  Container(
+                    width: 40,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(6),
+                      
+                    ),
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
+                ],
               ),
 
               const SizedBox(height: 15),
