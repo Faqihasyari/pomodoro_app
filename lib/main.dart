@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pomodoro_app/presentation/screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,11 +31,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('Hello, Flutter!'),
-        ),
-      ),
+      home: const MyHomePage()
     );
   }
 }
