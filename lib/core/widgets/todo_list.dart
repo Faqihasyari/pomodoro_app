@@ -9,27 +9,9 @@ class CuteTodoPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xfff7f2e8), // warna kertas dotted luar
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Stack(
           children: [
-            Positioned(
-              top: 10,
-              child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        12,
-                        (i) => Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          width: 12,
-                          height: 12,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                        ),
-                      ),
-                    ),
-            ),
+            
             Container(
               width: 330,
               height: 500,
@@ -119,6 +101,24 @@ class CuteTodoPage extends StatelessWidget {
                   _todoItem("membasmi penjahat"),
                 ],
               ),
+            ),
+            Positioned(
+              top: 10,
+              child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        12,
+                        (i) => Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          width: 12,
+                          height: 12,
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                        ),
+                      ),
+                    ),
             ),
           ],
         ),
