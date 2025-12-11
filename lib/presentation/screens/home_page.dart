@@ -7,9 +7,29 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: Center(
-        child: CuteTodoPage(),
+      body: Stack(
+        children: [
+          Center(child: CuteTodoPage()),
+          Positioned(
+            left: 130,
+            top: 270,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                12,
+                (i) => Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  width: 12,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
