@@ -19,9 +19,9 @@ class CuteTodoPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 6,
-                offset: const Offset(3, 3),
+                color: Colors.orange.withOpacity(0.5),
+                blurRadius: 2,
+                offset: const Offset(5, 5),
               ),
             ],
           ),
