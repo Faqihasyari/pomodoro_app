@@ -28,7 +28,6 @@ class CuteTodoPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Spiral binder
               const SizedBox(height: 12),
 
               Text("To Do List", style: frindly),
@@ -59,15 +58,27 @@ class CuteTodoPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 10),
-                  Container(
-                    width: 40,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(6),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      minimumSize: Size(20, 50),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
                     ),
-                    child: const Icon(Icons.add, color: Colors.white),
+                    onPressed: () {},
+                    child: const Icon(Icons.add),
                   ),
+                  // Container(
+                  //   width: 40,
+                  //   height: 50,
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.black,
+                  //     borderRadius: BorderRadius.circular(6),
+                  //   ),
+                  //   child: const Icon(Icons.add, color: Colors.white),
+                  // ),
                 ],
               ),
 
