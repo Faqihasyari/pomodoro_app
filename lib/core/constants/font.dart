@@ -1,3 +1,4 @@
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final frindly = GoogleFonts.mansalva();
+var frindly = GoogleFonts.mansalva(fontSize: 22, fontWeight: FontWeight.bold);

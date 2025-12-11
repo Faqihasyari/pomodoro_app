@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pomodoro_app/core/constants/font.dart';
 
 class CuteTodoPage extends StatelessWidget {
   const CuteTodoPage({super.key});
@@ -11,7 +12,6 @@ class CuteTodoPage extends StatelessWidget {
       body: Center(
         child: Stack(
           children: [
-            
             Container(
               width: 330,
               height: 500,
@@ -31,24 +31,16 @@ class CuteTodoPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Spiral binder
-                  
                   const SizedBox(height: 12),
-            
-                  Text(
-                    "To Do List",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+
+                  Text("To Do List", style: frindly),
                   const SizedBox(height: 10),
-            
+
                   // Input Add Task
                   Row(
                     children: [
                       Expanded(
                         child: TextField(
-                          
                           decoration: InputDecoration(
                             hintText: "Add task...",
                             prefix: const SizedBox(width: 8),
@@ -62,10 +54,12 @@ class CuteTodoPage extends StatelessWidget {
                               horizontal: 12,
                               vertical: 12,
                             ),
-                            
+
                             enabledBorder: UnderlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.black, width: 2),
-                              
+                              borderSide: const BorderSide(
+                                color: Colors.black,
+                                width: 2,
+                              ),
                             ),
                             // border: OutlineInputBorder(
                             //   borderSide: const BorderSide(width: 1),
@@ -81,18 +75,14 @@ class CuteTodoPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Colors.black,
                           borderRadius: BorderRadius.circular(6),
-                          
                         ),
-                        child: const Icon(
-                          Icons.add,
-                          color: Colors.white,
-                        ),
+                        child: const Icon(Icons.add, color: Colors.white),
                       ),
                     ],
                   ),
-            
+
                   const SizedBox(height: 15),
-            
+
                   // Contoh item
                   _todoItem("tugas proposal"),
                   _todoItem("tugas PPT"),
@@ -105,20 +95,20 @@ class CuteTodoPage extends StatelessWidget {
             Positioned(
               top: 10,
               child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        12,
-                        (i) => Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          width: 12,
-                          height: 12,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                        ),
-                      ),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  12,
+                  (i) => Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    width: 12,
+                    height: 12,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(100),
                     ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
@@ -136,16 +126,8 @@ class CuteTodoPage extends StatelessWidget {
             onChanged: (_) {},
             shape: const CircleBorder(),
           ),
-          Expanded(
-            child: Text(
-              title,
-              style: const TextStyle(fontSize: 16),
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.close, size: 18),
-          ),
+          Expanded(child: Text(title, style: const TextStyle(fontSize: 16))),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.close, size: 18)),
         ],
       ),
     );
