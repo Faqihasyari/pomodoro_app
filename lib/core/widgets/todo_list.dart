@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
+import 'package:pomodoro_app/core/models/task.dart';
 import 'package:pomodoro_app/presentation/screens/provider.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +10,8 @@ class CuteTodoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  final _taskController = TextEditingController();
+    final _taskController = TextEditingController();
+    final tasks = context.watch<TaskProvider>().tasks;
 
     return Scaffold(
       backgroundColor: const Color(0xfff7f2e8),
@@ -64,7 +66,6 @@ class CuteTodoPage extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                   ElevatedButton(
-                    
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       minimumSize: Size(20, 50),
@@ -74,7 +75,9 @@ class CuteTodoPage extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      context.read<TaskProvider>().addTask(_taskController.text);
+                      context.read<TaskProvider>().addTask(
+                        _taskController.text,
+                      );
                       _taskController.clear();
                     },
                     child: const Icon(Icons.add),
@@ -93,12 +96,33 @@ class CuteTodoPage extends StatelessWidget {
 
               const SizedBox(height: 15),
 
+              Expanded(
+                child: ListView.builder(
+                  itemCount: tasks.length,
+                  itemBuilder: (context, index) {
+                    final task = tasks[index];
+                    return TaskItem(task: task);
+                  },
+                ),
+              ),
+
+              // if (tasks.isEmpty)... [
+              //   Center(
+              //     child: Text('Belum ada task'),
+              //   )
+              // ] else ... [
+              //   ListView.builder(itemBuilder: (context, index) {
+              //     final task = tasks[index];
+              //     return TaskItem(task:task)
+              //   },)
+              // ]
+
               // Contoh item
-              _todoItem("tugas proposal"),
-              _todoItem("tugas PPT"),
-              _todoItem("bikin video"),
-              _todoItem("masak"),
-              _todoItem("membasmi penjahat"),
+              // _todoItem("tugas proposal"),
+              // _todoItem("tugas PPT"),
+              // _todoItem("bikin video"),
+              // _todoItem("masak"),
+              // _todoItem("membasmi penjahat"),
             ],
           ),
         ),
@@ -106,18 +130,56 @@ class CuteTodoPage extends StatelessWidget {
     );
   }
 
-  Widget _todoItem(String title) {
+  // Widget _todoItem(String title) {
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(vertical: 6),
+  //     child: Row(
+  //       children: [
+  //         Checkbox(
+  //           value: false,
+  //           onChanged: (_) {},
+  //           shape: const CircleBorder(),
+  //         ),
+  //         Expanded(child: Text(title, style: const TextStyle(fontSize: 16))),
+  //         IconButton(onPressed: () {}, icon: const Icon(Icons.close, size: 18)),
+  //       ],
+  //     ),
+  //   );
+  // }
+}
+
+
+class TaskItem extends StatelessWidget {
+  final TaskModel task; 
+
+  const TaskItem({super.key, required this.task});
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
         children: [
           Checkbox(
-            value: false,
-            onChanged: (_) {},
+            value: task.isCompleted,
+            onChanged: (value) {
+              context.read<TaskProvider>().toggleTask(task.id);
+            },
             shape: const CircleBorder(),
+            activeColor: Colors.orange,
           ),
-          Expanded(child: Text(title, style: const TextStyle(fontSize: 16))),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.close, size: 18)),
+          Expanded(
+            child: Text(
+              task.task, 
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              context.read<TaskProvider>().deleteTask(task.id);
+            },
+            icon: const Icon(Icons.close, size: 18),
+          ),
         ],
       ),
     );

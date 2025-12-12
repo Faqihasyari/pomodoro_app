@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pomodoro_app/core/widgets/todo_list.dart';
 import 'package:pomodoro_app/presentation/screens/home_page.dart';
 import 'package:pomodoro_app/presentation/screens/provider.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(),
+      home: const CuteTodoPage(),
     );
   }
 }
