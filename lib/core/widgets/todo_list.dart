@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
+import 'package:pomodoro_app/presentation/screens/provider.dart';
+import 'package:provider/provider.dart';
 
 class CuteTodoPage extends StatelessWidget {
   const CuteTodoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+  final _taskController = TextEditingController();
+
     return Scaffold(
       backgroundColor: const Color(0xfff7f2e8),
       body: Center(
@@ -37,6 +41,7 @@ class CuteTodoPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: TextField(
+                      controller: _taskController,
                       decoration: InputDecoration(
                         hintText: "Add task...",
                         prefix: const SizedBox(width: 8),
@@ -59,6 +64,7 @@ class CuteTodoPage extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                   ElevatedButton(
+                    
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       minimumSize: Size(20, 50),
@@ -67,7 +73,10 @@ class CuteTodoPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(6),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<TaskProvider>().addTask(_taskController.text);
+                      _taskController.clear();
+                    },
                     child: const Icon(Icons.add),
                   ),
                   // Container(

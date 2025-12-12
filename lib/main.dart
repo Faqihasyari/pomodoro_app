@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pomodoro_app/presentation/screens/home_page.dart';
+import 'package:pomodoro_app/presentation/screens/provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(create: (_) => TaskProvider(), child: const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -31,8 +35,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage()
+      home: const MyHomePage(),
     );
   }
 }
-
