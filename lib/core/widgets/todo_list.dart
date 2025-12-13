@@ -15,11 +15,11 @@ class CuteTodoPage extends StatelessWidget {
     final tasks = context.watch<TaskProvider>().tasks;
 
     return Scaffold(
-      backgroundColor: const Color(0xfff7f2e8),
+      backgroundColor: bg ,
       body: Center(
         child: Container(
-          width: 330,
-          height: 500,
+          width: 230,
+          height: 300,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: Colors.white,
