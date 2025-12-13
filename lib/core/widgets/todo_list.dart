@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
 import 'package:pomodoro_app/core/models/task.dart';
 import 'package:pomodoro_app/presentation/screens/provider.dart';
@@ -57,7 +58,7 @@ class CuteTodoPage extends StatelessWidget {
 
                         enabledBorder: UnderlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.black,
+                            color: garis,
                             width: 2,
                           ),
                         ),
@@ -67,12 +68,14 @@ class CuteTodoPage extends StatelessWidget {
                   SizedBox(width: 10),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
+                      backgroundColor: btn,
+                      side: BorderSide(color: garis, width: 2),
                       minimumSize: Size(20, 50),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6),
                       ),
+                      
                     ),
                     onPressed: () {
                       context.read<TaskProvider>().addTask(
@@ -80,7 +83,7 @@ class CuteTodoPage extends StatelessWidget {
                       );
                       _taskController.clear();
                     },
-                    child: const Icon(Icons.add),
+                    child: const Icon(Icons.add, color: garis,),
                   ),
                   // Container(
                   //   width: 40,
