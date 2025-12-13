@@ -16,118 +16,116 @@ class CuteTodoPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: bg ,
-      body: Center(
-        child: Container(
-          width: 230,
-          height: 300,
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.orange.withOpacity(0.5),
-                blurRadius: 2,
-                offset: const Offset(5, 5),
-              ),
-            ],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 12),
-
-              Text("To Do List", style: frindly),
-              const SizedBox(height: 10),
-
-              Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: _taskController,
-                      decoration: InputDecoration(
-                        hintText: "Add task...",
-                        prefix: const SizedBox(width: 8),
-                        hintStyle: GoogleFonts.mansalva(letterSpacing: 2),
-                        filled: true,
-                        fillColor: Colors.white,
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 12,
-                        ),
-
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: garis,
-                            width: 2,
-                          ),
+      body: Container(
+        width: 300,
+        height: 300,
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.orange.withOpacity(0.5),
+              blurRadius: 2,
+              offset: const Offset(5, 5),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 12),
+      
+            Text("To Do List", style: frindly),
+            const SizedBox(height: 10),
+      
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _taskController,
+                    decoration: InputDecoration(
+                      hintText: "Add task...",
+                      prefix: const SizedBox(width: 8),
+                      hintStyle: GoogleFonts.mansalva(letterSpacing: 2),
+                      filled: true,
+                      fillColor: Colors.white,
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 12,
+                      ),
+      
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: garis,
+                          width: 2,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(width: 10),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: btn,
-                      side: BorderSide(color: garis, width: 2),
-                      minimumSize: Size(20, 50),
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      
-                    ),
-                    onPressed: () {
-                      context.read<TaskProvider>().addTask(
-                        _taskController.text,
-                      );
-                      _taskController.clear();
-                    },
-                    child: const Icon(Icons.add, color: garis,),
-                  ),
-                  // Container(
-                  //   width: 40,
-                  //   height: 50,
-                  //   decoration: BoxDecoration(
-                  //     color: Colors.black,
-                  //     borderRadius: BorderRadius.circular(6),
-                  //   ),
-                  //   child: const Icon(Icons.add, color: Colors.white),
-                  // ),
-                ],
-              ),
-
-              const SizedBox(height: 15),
-
-              Expanded(
-                child: ListView.builder(
-                  itemCount: tasks.length,
-                  itemBuilder: (context, index) {
-                    final task = tasks[index];
-                    return TaskItem(task: task);
-                  },
                 ),
+                SizedBox(width: 10),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: btn,
+                    side: BorderSide(color: garis, width: 2),
+                    minimumSize: Size(20, 50),
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    
+                  ),
+                  onPressed: () {
+                    context.read<TaskProvider>().addTask(
+                      _taskController.text,
+                    );
+                    _taskController.clear();
+                  },
+                  child: const Icon(Icons.add, color: garis,),
+                ),
+                // Container(
+                //   width: 40,
+                //   height: 50,
+                //   decoration: BoxDecoration(
+                //     color: Colors.black,
+                //     borderRadius: BorderRadius.circular(6),
+                //   ),
+                //   child: const Icon(Icons.add, color: Colors.white),
+                // ),
+              ],
+            ),
+      
+            const SizedBox(height: 15),
+      
+            Expanded(
+              child: ListView.builder(
+                itemCount: tasks.length,
+                itemBuilder: (context, index) {
+                  final task = tasks[index];
+                  return TaskItem(task: task);
+                },
               ),
-
-              // if (tasks.isEmpty)... [
-              //   Center(
-              //     child: Text('Belum ada task'),
-              //   )
-              // ] else ... [
-              //   ListView.builder(itemBuilder: (context, index) {
-              //     final task = tasks[index];
-              //     return TaskItem(task:task)
-              //   },)
-              // ]
-
-              // Contoh item
-              // _todoItem("tugas proposal"),
-              // _todoItem("tugas PPT"),
-              // _todoItem("bikin video"),
-              // _todoItem("masak"),
-              // _todoItem("membasmi penjahat"),
-            ],
-          ),
+            ),
+      
+            // if (tasks.isEmpty)... [
+            //   Center(
+            //     child: Text('Belum ada task'),
+            //   )
+            // ] else ... [
+            //   ListView.builder(itemBuilder: (context, index) {
+            //     final task = tasks[index];
+            //     return TaskItem(task:task)
+            //   },)
+            // ]
+      
+            // Contoh item
+            // _todoItem("tugas proposal"),
+            // _todoItem("tugas PPT"),
+            // _todoItem("bikin video"),
+            // _todoItem("masak"),
+            // _todoItem("membasmi penjahat"),
+          ],
         ),
       ),
     );

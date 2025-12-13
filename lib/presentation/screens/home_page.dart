@@ -13,35 +13,40 @@ class MyHomePage extends StatelessWidget {
         children: [
           Expanded(
             flex: 1,
-            child: Text('ajsbdsad')),
+            child: Column(
+              children: [
+                Text('jaksdjasndansdajdjansjandasndaalsndlnsdasnajsndn'),
+              ],
+            )),
           Expanded(
             flex: 2,
             child: Column(
               children: [
                 SizedBox(
+                  width: 300,
                   height: 300,
                   child: Stack(
                     children: [
                       CuteTodoPage(),
-                      Positioned(
-                        left: 70,
-                        top: 250,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(
-                            12,
-                            (i) => Container(
-                              margin: const EdgeInsets.symmetric(horizontal: 4),
-                              width: 12,
-                              height: 12,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                      // Positioned(
+                      //   left: 70,
+                      //   top: 250,
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.center,
+                      //     children: List.generate(
+                      //       12,
+                      //       (i) => Container(
+                      //         margin: const EdgeInsets.symmetric(horizontal: 4),
+                      //         width: 12,
+                      //         height: 12,
+                      //         decoration: BoxDecoration(
+                      //           color: Colors.black,
+                      //           borderRadius: BorderRadius.circular(100),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
