@@ -11,8 +11,8 @@ class MyHomePage extends StatelessWidget {
         children: [
           Center(child: CuteTodoPage()),
           Positioned(
-            left: 130,
-            top: 270,
+            left: 70,
+            top: 250,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
