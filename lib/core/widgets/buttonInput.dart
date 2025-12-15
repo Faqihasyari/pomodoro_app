@@ -26,16 +26,25 @@ class _InputButtonState extends State<InputButton> {
     }
     return Row(
       children: [
-        Expanded(
+        SizedBox(
+          width: 100,
+          height: 50,
           child: TextField(
             controller: _focusController,
             keyboardType: TextInputType.number,
+            
             decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(borderSide: BorderSide(width: 2, color: Colors.black)),
               hintText: 'Waktu Fomkus'
+              
             ),
           ),
         ),
-         Expanded(
+         SizedBox(
+          width: 100,
+          height: 50,
            child: TextField(
             controller: _restController,
             keyboardType: TextInputType.number,

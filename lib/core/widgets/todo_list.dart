@@ -22,6 +22,7 @@ class CuteTodoPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           color: Colors.white,
+          border: Border.all(width: 2, color: Colors.black),
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
