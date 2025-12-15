@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    MultiProvider(providers: [ChangeNotifierProvider(create: (context) => TaskProvider()),ChangeNotifierProvider(create: (context) => PomodoroProvider(),)],child: const MyApp(),)
+    MultiProvider(providers: [ChangeNotifierProvider(create: (context) => TaskProvider()),ChangeNotifierProvider(create: (context) => PomodoroProvider(),), ],child: const MyApp(),)
   );
 }
 

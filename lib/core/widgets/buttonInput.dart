@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pomodoro_app/presentation/provider/pomodoro_provider.dart';
 import 'package:provider/provider.dart';
 
-class InputButto extends StatefulWidget {
-  const InputButto({super.key});
+class InputButton extends StatefulWidget {
+  const InputButton({super.key});
 
   @override
-  State<InputButto> createState() => _InputButtoState();
+  State<InputButton> createState() => _InputButtonState();
 }
 
-class _InputButtoState extends State<InputButto> {
+class _InputButtonState extends State<InputButton> {
     final _focusController = TextEditingController();
   final _restController = TextEditingController();
 
@@ -26,10 +26,24 @@ class _InputButtoState extends State<InputButto> {
     }
     return Row(
       children: [
-        TextField(
-          controller: _focusController,
-          keyboardType: TextInputType.number,
-        )
+        Expanded(
+          child: TextField(
+            controller: _focusController,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              hintText: 'Waktu Fomkus'
+            ),
+          ),
+        ),
+         Expanded(
+           child: TextField(
+            controller: _restController,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              hintText: 'Waktu Istirahat'
+            ),
+                   ),
+         )
       ],
     );
   }
