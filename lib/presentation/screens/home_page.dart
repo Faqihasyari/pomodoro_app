@@ -61,7 +61,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            // timer pomodoro
+            // input timer pomodoro
+            Row(
+              children: [
+                Text('asdhjvgasd'),
+                Text('asdkjagsdb')
+              ],
+            )
           ],
         ),
       ),
