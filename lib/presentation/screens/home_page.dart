@@ -14,12 +14,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final _focusController = TextEditingController();
-  final _testController = TextEditingController();
+  final _restController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final pomodoro = context.watch<PomodoroProvider>();
-    
+
+     String formatTime(int seconds) {
+      final m = (seconds ~/ 60).toString().padLeft(2, '0');
+      final s = (seconds % 60).toString().padLeft(2, '0');
+      return '$m:$s';
+    }
+
     return Scaffold(
       backgroundColor: bg,
       body: Padding(
