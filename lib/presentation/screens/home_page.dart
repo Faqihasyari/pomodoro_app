@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/widgets/bullet.dart';
 import 'package:pomodoro_app/core/widgets/buttonInput.dart';
+import 'package:pomodoro_app/core/widgets/containerTimer.dart';
 import 'package:pomodoro_app/core/widgets/todo_list.dart';
 import 'package:pomodoro_app/presentation/provider/pomodoro_provider.dart';
 import 'package:provider/provider.dart';
@@ -55,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             // input timer pomodoro
-            InputButton()
+            Containertimer()
           ],
         ),
       ),
