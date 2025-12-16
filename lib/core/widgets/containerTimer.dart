@@ -130,12 +130,19 @@ class _ContainertimerState extends State<Containertimer> {
             
             
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                side: BorderSide(width: 3, color: outlineBorder),
+                minimumSize: Size(400, 70),
+                backgroundColor: btnContainer,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(15))
+                
+              ),
                     onPressed: () {
                       final focus = int.tryParse(_focusController.text) ?? 25;
                       final rest = int.tryParse(_restController.text) ?? 5;
                       context.read<PomodoroProvider>().initialize(focus, rest);
                     },
-                    child: const Text('Set Timer'),
+                    child:  Text('SET TIMER', style: btnSetTimer,),
                   ),
           // ,Row(
           //   children: [

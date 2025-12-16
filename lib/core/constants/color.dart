@@ -12,3 +12,4 @@ const btnColorTimer = Color(0xffE1DDDC);
 const outlineBorder = Color(0xff292929);
 const btnColor = Color(0xff5D4B49);
 const colorHeader = Color(0xff5E4F4A);
+const btnContainer = Color(0xff84C0DE);
