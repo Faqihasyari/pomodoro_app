@@ -30,7 +30,7 @@ class _ContainertimerState extends State<Containertimer> {
       height: 620,
       width: 500,
       decoration: BoxDecoration(
-        color: bgContainer,
+        color: timerContainer,
         border: Border.all(color: Colors.black,width: 4),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [BoxShadow(
@@ -39,6 +39,7 @@ class _ContainertimerState extends State<Containertimer> {
         )]
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Puuuuuuqi Pomodoro', style: fontHeaderTimer,),
           SizedBox(height: 20,),
@@ -129,27 +130,16 @@ class _ContainertimerState extends State<Containertimer> {
       ],
     ),
 
-            Text(formatTime(pomodoro.remainingTime), style: TextStyle(fontSize: 62, fontWeight: FontWeight.bold),),
-            
-            
-            // ElevatedButton(
-            //   style: ElevatedButton.styleFrom(
-            //     side: BorderSide(width: 3, color: outlineBorder),
-            //     minimumSize: Size(400, 70),
-            //     shadowColor: Colors.black,
-            //     elevation: 5,
-            //     backgroundColor: btnContainer,
-            //     shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(15))
-                
-            //   ),
-            //         onPressed: () {
-            //           final focus = int.tryParse(_focusController.text) ?? 25;
-            //           final rest = int.tryParse(_restController.text) ?? 5;
-            //           context.read<PomodoroProvider>().initialize(focus, rest);
-            //         },
-            //         child:  Text('SET TIMER', style: btnSetTimer,),
-                  
-            //       ),
+            Container(
+              width: 400,
+              height: 200,
+              decoration: BoxDecoration(
+                color: bgContainer,
+                border: Border.all(width: 3, color: outlineBorder),
+                borderRadius: BorderRadius.circular(20)
+              ),
+
+              child: Center(child: Text(formatTime(pomodoro.remainingTime), style: TextStyle(fontSize: 62, fontWeight: FontWeight.bold),))),
             GestureDetector(
               onTap: () {
                 final focus = int.tryParse(_focusController.text) ?? 25;
@@ -173,12 +163,54 @@ class _ContainertimerState extends State<Containertimer> {
               ),
             )
           ,Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(onPressed: pomodoro.isRunning ? () => context.read<PomodoroProvider>().pause() : ()=> context.read<PomodoroProvider>().start(), child: Text(pomodoro.isRunning ? 'Pause' : 'Start')),
-              ElevatedButton(
-                  onPressed: () => context.read<PomodoroProvider>().reset(),
-                  child: const Text('Reset'),
+              GestureDetector(
+              onTap: () {
+                pomodoro.isRunning ? () => context.read<PomodoroProvider>().pause() : ()=> context.read<PomodoroProvider>().start();
+              },
+              child: Container(
+                
+                width: 200,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: startBtn,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(width: 3, color: Colors.black),
+                  boxShadow: [BoxShadow(
+                    color: Colors.black,
+                    offset: Offset(5, 5)
+                  )]
                 ),
+                child: Center(child: Text(pomodoro.isRunning ? 'PAUSE' :'START', style: btnSetTimer,)),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                context.read<PomodoroProvider>().reset();
+              },
+              child: Container(
+                
+                width: 200,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: resetBtn,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(width: 3, color: Colors.black),
+                  boxShadow: [BoxShadow(
+                    color: Colors.black,
+                    offset: Offset(5, 5)
+                  )]
+                ),
+                child: Center(child: Text('RESET', style: btnSetTimer,)),
+              ),
+            ),
+              // ElevatedButton(
+              //   onPressed: pomodoro.isRunning ? () => context.read<PomodoroProvider>().pause() : ()=> context.read<PomodoroProvider>().start(), child: Text(pomodoro.isRunning ? 'Pause' : 'Start')),
+              // ElevatedButton(
+              //     onPressed: () => context.read<PomodoroProvider>().reset(),
+              //     child: const Text('Reset'),
+              //   ),
             ],
           )
         ],
