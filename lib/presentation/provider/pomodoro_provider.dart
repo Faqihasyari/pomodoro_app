@@ -8,12 +8,19 @@ class PomodoroProvider with ChangeNotifier {
   bool _isRunning = false;
   bool _isFocusSession = true;
   Timer? _timer;
+  int _totalFocusSeconds = 0;
 
   // Getter
   int get remainingTime => _remainingTime;
   bool get isRunning => _isRunning;
   bool get isFocusSession => _isFocusSession;
   String get sessionType => _isFocusSession ? 'Focus' : 'Rest';
+
+  // getter total fokus
+  int get totalFocusSeconds => _totalFocusSeconds;
+  int get totalFocusMinutes => _totalFocusSeconds ~/ 60;
+
+
 
   // Inisialisasi waktu dari input user
   void initialize(int focusMinutes, int restMinutes) {
@@ -25,6 +32,8 @@ class PomodoroProvider with ChangeNotifier {
     _timer?.cancel();
     notifyListeners();
   }
+
+
 
   void _startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -39,8 +48,17 @@ class PomodoroProvider with ChangeNotifier {
     });
   }
 
+  void resetTotalFocus() {
+    _totalFocusSeconds = 0;
+    notifyListeners();
+  }
+
   void _switchSession() {
     if (_isFocusSession) {
+      // setiap fokus selesai akan menambahkannya ke total fokus
+      _totalFocusSeconds += _focusDuration - _remainingTime;
+
+      // mulai jeda
       _isFocusSession = false;
       _remainingTime = _restDuration;
     } else {
@@ -48,6 +66,7 @@ class PomodoroProvider with ChangeNotifier {
       _remainingTime = _focusDuration;
     }
     _startTimer();
+    notifyListeners();
   }
 
   void start() {

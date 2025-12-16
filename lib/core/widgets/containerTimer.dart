@@ -27,7 +27,7 @@ class _ContainertimerState extends State<Containertimer> {
       return '$m:$s';
     }
     return Container(
-      height: 620,
+      height: 720,
       width: 500,
       decoration: BoxDecoration(
         color: timerContainer,
@@ -55,7 +55,7 @@ class _ContainertimerState extends State<Containertimer> {
               height: 55,
               child: TextField(
                 maxLines: null,
-                
+                style: fontBtnTimer,
                 expands: true,
                       controller: _focusController,
                       keyboardType: TextInputType.number,
@@ -94,6 +94,7 @@ class _ContainertimerState extends State<Containertimer> {
               width: 150,
               height: 55,
               child: TextField(
+                style: fontBtnTimer,
                 maxLines: null,
                 
                 expands: true,
@@ -168,9 +169,9 @@ class _ContainertimerState extends State<Containertimer> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
-              onTap: () {
-                pomodoro.isRunning ? () => context.read<PomodoroProvider>().pause() : ()=> context.read<PomodoroProvider>().start();
-              },
+              onTap: () =>
+                pomodoro.isRunning ? context.read<PomodoroProvider>().pause() :  context.read<PomodoroProvider>().start(),
+              
               child: Container(
                 
                 width: 195,
@@ -186,7 +187,7 @@ class _ContainertimerState extends State<Containertimer> {
                 ),
                 child: Center(child: Text(pomodoro.isRunning ? 'PAUSE' :'START', style: btnSetTimer,)),
               ),
-            ),
+                          ),
             SizedBox(width: 10,),
             GestureDetector(
               onTap: () {
@@ -208,14 +209,11 @@ class _ContainertimerState extends State<Containertimer> {
                 child: Center(child: Text('RESET', style: btnSetTimer,)),
               ),
             ),
-              // ElevatedButton(
-              //   onPressed: pomodoro.isRunning ? () => context.read<PomodoroProvider>().pause() : ()=> context.read<PomodoroProvider>().start(), child: Text(pomodoro.isRunning ? 'Pause' : 'Start')),
-              // ElevatedButton(
-              //     onPressed: () => context.read<PomodoroProvider>().reset(),
-              //     child: const Text('Reset'),
-              //   ),
+              
             ],
-          )
+          ),
+          SizedBox(height: 20,),
+          Text('Total Fokus ${pomodoro.totalFocusMinutes} min', style: fontBtnTimer,)
         ],
       ),
     );
