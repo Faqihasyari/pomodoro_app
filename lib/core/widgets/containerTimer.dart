@@ -129,7 +129,7 @@ class _ContainertimerState extends State<Containertimer> {
         ),
       ],
     ),
-
+      SizedBox(height: 20,),
             Container(
               width: 400,
               height: 200,
@@ -139,7 +139,8 @@ class _ContainertimerState extends State<Containertimer> {
                 borderRadius: BorderRadius.circular(20)
               ),
 
-              child: Center(child: Text(formatTime(pomodoro.remainingTime), style: TextStyle(fontSize: 62, fontWeight: FontWeight.bold),))),
+              child: Center(child: Text(formatTime(pomodoro.remainingTime), style: fontTimer,))),
+            SizedBox(height: 30,),
             GestureDetector(
               onTap: () {
                 final focus = int.tryParse(_focusController.text) ?? 25;
@@ -161,7 +162,8 @@ class _ContainertimerState extends State<Containertimer> {
                 ),
                 child: Center(child: Text('SET TIMER', style: btnSetTimer,)),
               ),
-            )
+            ),
+            SizedBox(height: 20,)
           ,Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -171,7 +173,7 @@ class _ContainertimerState extends State<Containertimer> {
               },
               child: Container(
                 
-                width: 200,
+                width: 195,
                 height: 70,
                 decoration: BoxDecoration(
                   color: startBtn,
@@ -185,13 +187,14 @@ class _ContainertimerState extends State<Containertimer> {
                 child: Center(child: Text(pomodoro.isRunning ? 'PAUSE' :'START', style: btnSetTimer,)),
               ),
             ),
+            SizedBox(width: 10,),
             GestureDetector(
               onTap: () {
                 context.read<PomodoroProvider>().reset();
               },
               child: Container(
                 
-                width: 200,
+                width: 195,
                 height: 70,
                 decoration: BoxDecoration(
                   color: resetBtn,
