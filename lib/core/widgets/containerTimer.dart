@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
-import 'package:pomodoro_app/core/widgets/buttonInput.dart';
 import 'package:pomodoro_app/presentation/provider/pomodoro_provider.dart';
 import 'package:provider/provider.dart';
 
