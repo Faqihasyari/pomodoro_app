@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
+import 'package:hive/hive.dart';
+import 'package:pomodoro_app/core/models/app_data.dart';
 
 class PomodoroProvider with ChangeNotifier {
   late int _focusDuration;  
@@ -9,6 +11,10 @@ class PomodoroProvider with ChangeNotifier {
   bool _isFocusSession = true;
   Timer? _timer;
   int _totalFocusSeconds = 0;
+  final Box<AppData> _dataBox;
+
+  PomodoroProvider({required Box<AppData> dataBox}) : _dataBox = dataBox;
+
 
   // Getter
   int get remainingTime => _remainingTime;

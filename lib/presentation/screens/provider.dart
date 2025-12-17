@@ -1,9 +1,14 @@
 import 'package:flutter/foundation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pomodoro_app/core/models/task.dart';
 import 'package:uuid/uuid.dart'; 
 
 class TaskProvider with ChangeNotifier {
   final List<TaskModel> _tasks = [];
+  final Box<TaskModel> _taskBox;
+
+  TaskProvider({required Box<TaskModel> taskBox}) : _taskBox = taskBox;
+
 
   List<TaskModel> get tasks => _tasks;
 
