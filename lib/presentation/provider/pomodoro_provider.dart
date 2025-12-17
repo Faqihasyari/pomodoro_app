@@ -13,7 +13,9 @@ class PomodoroProvider with ChangeNotifier {
   int _totalFocusSeconds = 0;
   final Box<AppData> _dataBox;
 
-  PomodoroProvider({required Box<AppData> dataBox}) : _dataBox = dataBox;
+  PomodoroProvider({required Box<AppData> dataBox}) : _dataBox = dataBox{
+    _remainingTime = 25 * 60;
+  }
 
 
   // Getter
@@ -25,6 +27,12 @@ class PomodoroProvider with ChangeNotifier {
   // getter total fokus
   int get totalFocusSeconds => _totalFocusSeconds;
   int get totalFocusMinutes => _totalFocusSeconds ~/ 60;
+
+  // ambil total
+  int get totalFokusSeconds {
+    final data = _dataBox.get('main')?? AppData();
+    return data.totalFocusSeconds;
+  }
 
 
 
@@ -62,8 +70,10 @@ class PomodoroProvider with ChangeNotifier {
   void _switchSession() {
     if (_isFocusSession) {
       // setiap fokus selesai akan menambahkannya ke total fokus
-      _totalFocusSeconds += _focusDuration - _remainingTime;
-
+      final current = _dataBox.get('main')?? AppData();
+      current.totalFocusSeconds += _focusDuration;
+      _dataBox.put('main', current);
+      
       // mulai jeda
       _isFocusSession = false;
       _remainingTime = _restDuration;

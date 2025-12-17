@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
+import 'package:pomodoro_app/core/models/dotLine.dart';
 import 'package:pomodoro_app/presentation/provider/pomodoro_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +27,7 @@ class _ContainertimerState extends State<Containertimer> {
       return '$m:$s';
     }
     return Container(
-      height: 720,
+      height: 820,
       width: 500,
       decoration: BoxDecoration(
         color: timerContainer,
@@ -47,6 +48,7 @@ class _ContainertimerState extends State<Containertimer> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Column(
+          spacing: 5,
           children: [
             Text('Waktu (min)', style: fontBtnTimer,),
             SizedBox(
@@ -87,6 +89,7 @@ class _ContainertimerState extends State<Containertimer> {
           ],
         ),
         Column(
+          spacing: 5,
           children: [
             Text('Istirahat (min)', style: fontBtnTimer,),
             SizedBox(
@@ -129,7 +132,16 @@ class _ContainertimerState extends State<Containertimer> {
         ),
       ],
     ),
-      SizedBox(height: 20,),
+      // Divider(
+      //   color: Colors.black,
+      //   thickness: 2,
+      //   indent: 20,
+      //   endIndent: 20,
+      // ),
+      DottedLine(
+        color: Colors.black,
+        height: 4,
+      ),
             Container(
               width: 400,
               height: 200,
@@ -211,7 +223,10 @@ class _ContainertimerState extends State<Containertimer> {
               
             ],
           ),
-          SizedBox(height: 20,),
+          DottedLine(
+        color: Colors.black,
+        height: 4,
+      ),
           Text('Total Fokus ${pomodoro.totalFocusMinutes} min', style: fontBtnTimer,)
         ],
       ),
