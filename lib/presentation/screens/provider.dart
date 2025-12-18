@@ -42,7 +42,7 @@ class TaskProvider with ChangeNotifier {
   Future<void> deleteTask(String taskId) async {
     final task = _tasks.firstWhere((task) => task.id == taskId);
     await task.delete();
-    notifyListeners();
+    _loadTasks();
   }
   
 }
