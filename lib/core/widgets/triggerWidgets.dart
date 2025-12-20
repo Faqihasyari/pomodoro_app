@@ -27,7 +27,7 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Triggers', style: frindly,),
-          DottedLine(color: Colors.black, height: 4,)
+          DottedLineTriggers(color: Colors.black, height: 3,)
         ],
       ),
     );
