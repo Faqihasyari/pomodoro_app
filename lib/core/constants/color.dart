@@ -16,3 +16,6 @@ const btnContainer = Color(0xff84C0DE);
 const timerContainer = Color(0xffD4CFCC);
 const startBtn = Color(0xff878D81);
 const resetBtn = Color(0xffD8D4D3);
+
+// container trigger
+const bgContainerTrigger = Color(0xffFDDF39);

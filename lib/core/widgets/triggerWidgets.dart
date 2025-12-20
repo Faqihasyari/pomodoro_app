@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:pomodoro_app/core/constants/color.dart';
 
 class Triggerwidgets extends StatefulWidget {
   const Triggerwidgets({super.key});
@@ -11,10 +12,14 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 300,
+      height: 300,
       decoration: BoxDecoration(
-        color: 
+        color: bgContainerTrigger,
+        borderRadius: BorderRadius.circular(2),
+        
       ),
-      child: ,
+      // child: ,
     );
   }
 }

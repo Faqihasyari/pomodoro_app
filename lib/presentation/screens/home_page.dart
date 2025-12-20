@@ -4,6 +4,7 @@ import 'package:pomodoro_app/core/widgets/bullet.dart';
 import 'package:pomodoro_app/core/widgets/buttonInput.dart';
 import 'package:pomodoro_app/core/widgets/containerTimer.dart';
 import 'package:pomodoro_app/core/widgets/todo_list.dart';
+import 'package:pomodoro_app/core/widgets/triggerWidgets.dart';
 import 'package:pomodoro_app/presentation/provider/pomodoro_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -27,15 +28,18 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Expanded(
                   flex: 1,
                   child: Column(
                     children: [
-                      Text('jaksdjasndansdajdjansjandasndaalsndlnsdasnajsndn'),
+                      Triggerwidgets()
                     ],
                   )),
-                Expanded(
+                Flexible(
+                  fit: FlexFit.loose,
                   flex: 2,
                   child: Column(
                     children: [
@@ -43,10 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: 300,
                         height: 300,
                         child: Stack(
+                          alignment: AlignmentGeometry.center,
                           children: [
-
+                        
                             CuteTodoPage(),
-                      Bullet(),
+                                              Bullet(),
                           ],
                         ),
                       ),

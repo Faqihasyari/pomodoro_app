@@ -14,9 +14,7 @@ class CuteTodoPage extends StatelessWidget {
     final _taskController = TextEditingController();
     final tasks = context.watch<TaskProvider>().tasks;
 
-    return Scaffold(
-      backgroundColor: bg ,
-      body: Container(
+    return  Container(
         width: 300,
         height: 300,
         padding: const EdgeInsets.all(20),
@@ -128,8 +126,8 @@ class CuteTodoPage extends StatelessWidget {
             // _todoItem("membasmi penjahat"),
           ],
         ),
-      ),
-    );
+      );
+    
   }
 
   // Widget _todoItem(String title) {
