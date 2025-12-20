@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
+import 'package:pomodoro_app/core/constants/font.dart';
+import 'package:pomodoro_app/core/models/dotLine.dart';
 
 class Triggerwidgets extends StatefulWidget {
   const Triggerwidgets({super.key});
@@ -14,12 +17,19 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
     return Container(
       width: 300,
       height: 300,
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: bgContainerTrigger,
-        borderRadius: BorderRadius.circular(2),
+        color: bgContainerTrigger.withOpacity(0.8),
+        borderRadius: BorderRadius.circular(5),
         
       ),
-      // child: ,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Triggers', style: frindly,),
+          DottedLine(color: Colors.black, height: 4,)
+        ],
+      ),
     );
   }
 }
