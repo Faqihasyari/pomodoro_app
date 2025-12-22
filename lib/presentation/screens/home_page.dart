@@ -38,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Triggerwidgets()
                     ],
                   )),
+                  SizedBox(width: 20,),
                 Flexible(
                   fit: FlexFit.loose,
                   flex: 2,

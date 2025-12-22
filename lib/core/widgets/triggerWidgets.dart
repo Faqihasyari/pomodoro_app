@@ -26,7 +26,7 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Triggers', style: frindly,),
+          Text('Ke trigger kenapa banh?', style: frindly,),
           DottedLineTriggers(color: Colors.black, height: 3,)
         ],
       ),
