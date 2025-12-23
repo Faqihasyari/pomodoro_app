@@ -5,6 +5,7 @@ import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
 import 'package:pomodoro_app/core/models/dotLine.dart';
 import 'package:pomodoro_app/core/models/trigger.dart';
+import 'package:pomodoro_app/presentation/screens/provider.dart';
 import 'package:pomodoro_app/presentation/screens/trigger_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +19,8 @@ class Triggerwidgets extends StatefulWidget {
 class _TriggerwidgetsState extends State<Triggerwidgets> {
   @override
   Widget build(BuildContext context) {
+    final triggerController = TextEditingController();
+    final trigger = context.watch<TriggerProvider>().triggers;
     return Container(
       width: 300,
       height: 300,
@@ -35,6 +38,7 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
           Row(
             children: [
               Expanded(child: TextField(
+                controller: triggerController,
                 decoration: InputDecoration(
                   prefix: const SizedBox(width: 3,),
                    enabledBorder: UnderlineInputBorder(
@@ -57,10 +61,16 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
                   side: BorderSide(width: 3, color: Colors.black),
                 ),
                 onPressed: () {
-                
+                context.read<TriggerProvider>().addTrigger(triggerController.text);
               }, child: Icon(Icons.add, color: Colors.black,))
             ],
-          )
+          ),
+          Expanded(child: ListView.builder(
+            itemCount: trigger.length,
+            itemBuilder: (context, index) {
+            final trig = trigger[index];
+            return TriggerItem(trigger: trig);
+          },))
         ],
       ),
     );

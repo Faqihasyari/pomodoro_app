@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'trigger.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 2)
 class TriggerModel extends HiveObject{
   @HiveField(0)
   String id;

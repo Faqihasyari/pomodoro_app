@@ -8,7 +8,7 @@ part of 'trigger.dart';
 
 class TriggerModelAdapter extends TypeAdapter<TriggerModel> {
   @override
-  final int typeId = 0;
+  final int typeId = 2;
 
   @override
   TriggerModel read(BinaryReader reader) {
