@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
 import 'package:pomodoro_app/core/models/dotLine.dart';
@@ -27,7 +28,36 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Ke trigger kenapa banh?', style: frindly,),
-          DottedLineTriggers(color: Colors.black, height: 3,)
+          DottedLineTriggers(color: Colors.black, height: 3,),
+          Row(
+            children: [
+              Expanded(child: TextField(
+                decoration: InputDecoration(
+                  prefix: const SizedBox(width: 3,),
+                   enabledBorder: UnderlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: garis,
+                          width: 2,
+                        ),),
+                        hintText: 'Tambahkan Trigger...',
+                        hintStyle: GoogleFonts.mansalva(letterSpacing: 2)
+                ),
+              )),
+              SizedBox(width: 10,),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  elevation: 2,
+                  
+                  backgroundColor: Colors.white,
+                  minimumSize: Size(20, 50),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(6)),
+                  side: BorderSide(width: 3, color: Colors.black),
+                ),
+                onPressed: () {
+                
+              }, child: Icon(Icons.add, color: Colors.black,))
+            ],
+          )
         ],
       ),
     );

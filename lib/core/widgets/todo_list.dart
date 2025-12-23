@@ -53,7 +53,6 @@ class CuteTodoPage extends StatelessWidget {
                         horizontal: 12,
                         vertical: 12,
                       ),
-      
                       enabledBorder: UnderlineInputBorder(
                         borderSide: const BorderSide(
                           color: garis,
@@ -83,20 +82,9 @@ class CuteTodoPage extends StatelessWidget {
                   },
                   child: const Icon(Icons.add, color: garis,),
                 ),
-                // Container(
-                //   width: 40,
-                //   height: 50,
-                //   decoration: BoxDecoration(
-                //     color: Colors.black,
-                //     borderRadius: BorderRadius.circular(6),
-                //   ),
-                //   child: const Icon(Icons.add, color: Colors.white),
-                // ),
               ],
             ),
-      
             const SizedBox(height: 15),
-      
             Expanded(
               child: ListView.builder(
                 itemCount: tasks.length,
@@ -107,23 +95,7 @@ class CuteTodoPage extends StatelessWidget {
               ),
             ),
       
-            // if (tasks.isEmpty)... [
-            //   Center(
-            //     child: Text('Belum ada task'),
-            //   )
-            // ] else ... [
-            //   ListView.builder(itemBuilder: (context, index) {
-            //     final task = tasks[index];
-            //     return TaskItem(task:task)
-            //   },)
-            // ]
-      
-            // Contoh item
-            // _todoItem("tugas proposal"),
-            // _todoItem("tugas PPT"),
-            // _todoItem("bikin video"),
-            // _todoItem("masak"),
-            // _todoItem("membasmi penjahat"),
+            
           ],
         ),
       );
