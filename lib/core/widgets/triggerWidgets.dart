@@ -4,6 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
 import 'package:pomodoro_app/core/models/dotLine.dart';
+import 'package:pomodoro_app/core/models/trigger.dart';
+import 'package:pomodoro_app/presentation/screens/trigger_provider.dart';
+import 'package:provider/provider.dart';
 
 class Triggerwidgets extends StatefulWidget {
   const Triggerwidgets({super.key});
@@ -60,6 +63,26 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
           )
         ],
       ),
+    );
+  }
+}
+
+class TriggerItem extends StatelessWidget {
+  final TriggerModel trigger;
+
+  const TriggerItem({super.key, required this.trigger});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(padding: EdgeInsets.all(20),
+    child: Row(
+      children: [
+        Expanded(child: Text(trigger.trigger)),
+        IconButton(onPressed: () {
+          context.read<TriggerProvider>().deleteTrigger(trigger.id);
+        }, icon: Icon(Icons.close))
+      ],
+    ),
     );
   }
 }

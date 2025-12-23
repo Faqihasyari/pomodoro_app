@@ -13,7 +13,7 @@ class TaskProvider with ChangeNotifier {
 
   void _loadTasks() {
     _tasks.clear(); 
-    _tasks.addAll(_taskBox.values); 
+    _tasks.addAll(_taskBox.values);
     notifyListeners();
   }
 
