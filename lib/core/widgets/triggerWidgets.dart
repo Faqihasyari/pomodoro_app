@@ -84,7 +84,7 @@ class TriggerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.all(20),
+    return Padding(padding: EdgeInsets.only(bottom: 5),
     child: Row(
       children: [
         Expanded(child: Text(trigger.trigger)),
