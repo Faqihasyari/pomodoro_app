@@ -5,7 +5,6 @@ import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
 import 'package:pomodoro_app/core/models/dotLine.dart';
 import 'package:pomodoro_app/core/models/trigger.dart';
-import 'package:pomodoro_app/presentation/screens/provider.dart';
 import 'package:pomodoro_app/presentation/screens/trigger_provider.dart';
 import 'package:provider/provider.dart';
 

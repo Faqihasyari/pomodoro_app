@@ -38,6 +38,7 @@ class TriggerProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  // trigger buat delete
   Future<void> deleteTrigger(String id) async {
     final trigger = _triggers.firstWhere((t) => t.id == id);
     await trigger.delete();

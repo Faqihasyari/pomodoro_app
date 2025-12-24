@@ -10,15 +10,18 @@ import 'package:pomodoro_app/presentation/screens/trigger_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+  // cara binding di hive
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
 
+
+// sebelum di pake adapternya harus di register terlebih dahulu
   Hive.registerAdapter(AppDataAdapter());
   Hive.registerAdapter(TaskModelAdapter());
   Hive.registerAdapter(TriggerModelAdapter());
 
-
+  // untuk menampung data memakai model
   final taskBox = await Hive.openBox<TaskModel>('tasks');
   final triggerBox = await Hive.openBox<TriggerModel>('trigger');
 
@@ -36,7 +39,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
