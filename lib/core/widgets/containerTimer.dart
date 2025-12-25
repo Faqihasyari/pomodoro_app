@@ -216,13 +216,14 @@ class _ContainertimerState extends State<Containertimer> {
             SizedBox(width: 10,),
             GestureDetector(
               onTap: () {
-                final status = context.read<PomodoroProvider>().reset();
-                if (status == PomodoroActionStatus.notInitialized) {
+                if (!context.read<PomodoroProvider>().isInitializated) {
                   showCenteredNotification(context, 'Timernya di start dulu kocak');
+                  return;
                   // ScaffoldMessenger.of(context).showSnackBar(
                   //   const SnackBar(content: Text('Timernya atur dulu kocag'), backgroundColor: btn,)
                   // );
                 }
+                context.read<PomodoroProvider>().reset();
               },
               child: Container(
                 
