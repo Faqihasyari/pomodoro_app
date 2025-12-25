@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
 import 'package:pomodoro_app/core/models/dotLine.dart';
+import 'package:pomodoro_app/core/models/notification.dart';
 import 'package:pomodoro_app/presentation/provider/pomodoro_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -177,16 +178,23 @@ class _ContainertimerState extends State<Containertimer> {
               // onTap: () =>
               //   pomodoro.isRunning ? context.read<PomodoroProvider>().pause() :  context.read<PomodoroProvider>().start(),
               onTap: () {
-                if (pomodoro.isRunning) {
-                  context.read<PomodoroProvider>().pause();
-                } else {
-                  final status = context.read<PomodoroProvider>().start();
-                  if (status == PomodoroActionStatus.notInitialized) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Tekan SET TIMER dulu blog'), backgroundColor: btn,)
-                    );
-                  }
+                final currentFocus = int.tryParse(_focusController.text) ?? 25;
+                final currentRest = int.tryParse(_restController.text) ?? 5;
+
+                if (!pomodoro.isInitializated || currentFocus != pomodoro.activeFocusMinutes || currentRest != pomodoro.activeRestMinutes) {
+                  showCenteredNotification(context, 'Tekan SET TIMER dulu blog',);
+                  return;
                 }
+                pomodoro.start();
+                // if (pomodoro.isRunning) {
+                //   context.read<PomodoroProvider>().pause();
+                // } else {
+                //   final status = context.read<PomodoroProvider>().start();
+                //   if (status == PomodoroActionStatus.notInitialized) {
+                //     showCenteredNotification(context, 'Tekan SET TIMER dulu blog',);
+
+                //   }
+                // }
               },
               
               child: Container(
@@ -210,9 +218,10 @@ class _ContainertimerState extends State<Containertimer> {
               onTap: () {
                 final status = context.read<PomodoroProvider>().reset();
                 if (status == PomodoroActionStatus.notInitialized) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Timernya atur dulu kocag'), backgroundColor: btn,)
-                  );
+                  showCenteredNotification(context, 'Timernya di start dulu kocak');
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //   const SnackBar(content: Text('Timernya atur dulu kocag'), backgroundColor: btn,)
+                  // );
                 }
               },
               child: Container(

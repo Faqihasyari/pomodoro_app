@@ -33,6 +33,9 @@ class PomodoroProvider with ChangeNotifier {
   int get totalFocusSeconds => _totalFocusSeconds;
   int get totalFocusMinutes => _totalFocusSeconds ~/ 60;
 
+  int get activeFocusMinutes => _focusDuration ~/ 60;
+  int get activeRestMinutes => _restDuration ~/ 60;
+
   // ambil total
   int get totalFokusSeconds {
     final data = _dataBox.get('main')?? AppData();
