@@ -3,12 +3,16 @@ import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:pomodoro_app/core/models/app_data.dart';
 
+enum PomodoroActionStatus { success, notInitialized, notRunning }
+
+
 class PomodoroProvider with ChangeNotifier {
   late int _focusDuration;  
   late int _restDuration;    
   int _remainingTime = 0;
   bool _isRunning = false;
   bool _isFocusSession = true;
+  bool _isInitializated = false;
   Timer? _timer;
   int _totalFocusSeconds = 0;
   final Box<AppData> _dataBox;
@@ -21,6 +25,7 @@ class PomodoroProvider with ChangeNotifier {
   // Getter
   int get remainingTime => _remainingTime;
   bool get isRunning => _isRunning;
+  bool get isInitializated => _isInitializated;
   bool get isFocusSession => _isFocusSession;
   String get sessionType => _isFocusSession ? 'Focus' : 'Rest';
 
@@ -44,9 +49,10 @@ class PomodoroProvider with ChangeNotifier {
     _isFocusSession = true;
     _isRunning = false;
     _timer?.cancel();
+    _isInitializated = true;
     notifyListeners();
   }
-
+  
 
 
   void _startTimer() {
@@ -85,11 +91,15 @@ class PomodoroProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void start() {
-    if (_isRunning) return;
+  PomodoroActionStatus start() {
+    if (!_isInitializated) {
+      return PomodoroActionStatus.notInitialized;
+    }
+    if (_isRunning) return PomodoroActionStatus.success;
     _isRunning = true;
     _startTimer();
     notifyListeners();
+    return PomodoroActionStatus.success;
   }
 
   void pause() {
@@ -99,12 +109,16 @@ class PomodoroProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void reset() {
+  PomodoroActionStatus reset() {
+    if (!_isInitializated) {
+    return PomodoroActionStatus.notInitialized;
+  }
     _timer?.cancel();
     _timer = null;
     _isRunning = false;
     _remainingTime = _isFocusSession ? _focusDuration : _restDuration;
     notifyListeners();
+    return PomodoroActionStatus.success;
   }
 
   @override

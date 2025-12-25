@@ -132,12 +132,6 @@ class _ContainertimerState extends State<Containertimer> {
         ),
       ],
     ),
-      // Divider(
-      //   color: Colors.black,
-      //   thickness: 2,
-      //   indent: 20,
-      //   endIndent: 20,
-      // ),
       DottedLine(
         color: Colors.black,
         height: 4,
