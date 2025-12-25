@@ -174,8 +174,20 @@ class _ContainertimerState extends State<Containertimer> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
-              onTap: () =>
-                pomodoro.isRunning ? context.read<PomodoroProvider>().pause() :  context.read<PomodoroProvider>().start(),
+              // onTap: () =>
+              //   pomodoro.isRunning ? context.read<PomodoroProvider>().pause() :  context.read<PomodoroProvider>().start(),
+              onTap: () {
+                if (pomodoro.isRunning) {
+                  context.read<PomodoroProvider>().pause();
+                } else {
+                  final status = context.read<PomodoroProvider>().start();
+                  if (status == PomodoroActionStatus.notInitialized) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Tekan SET TIMER dulu blog'), backgroundColor: btn,)
+                    );
+                  }
+                }
+              },
               
               child: Container(
                 
@@ -196,7 +208,12 @@ class _ContainertimerState extends State<Containertimer> {
             SizedBox(width: 10,),
             GestureDetector(
               onTap: () {
-                context.read<PomodoroProvider>().reset();
+                final status = context.read<PomodoroProvider>().reset();
+                if (status == PomodoroActionStatus.notInitialized) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Timernya atur dulu kocag'), backgroundColor: btn,)
+                  );
+                }
               },
               child: Container(
                 
