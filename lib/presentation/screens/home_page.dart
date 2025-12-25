@@ -25,42 +25,23 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      children: [
-                        Triggerwidgets()
-                      ],
-                    )),
-                    SizedBox(width: 20,),
-                  Flexible(
-                    fit: FlexFit.loose,
-                    flex: 2,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          width: 300,
-                          height: 300,
-                          child: Stack(
-                            alignment: AlignmentGeometry.center,
-                            children: [
-                          
-                              CuteTodoPage(),
-                                                Bullet(),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                SizedBox(width: 20,),
+              SizedBox(
+                width: 300,
+                height: 300,
+                child: Stack(
+                  alignment: AlignmentGeometry.center,
+                  children: [
+                
+                    CuteTodoPage(),
+                                      Bullet(),
+                  ],
+                ),
               ),
               // input timer pomodoro
-              Containertimer()
+              Containertimer(),
+              Triggerwidgets(),
+
             ],
           ),
         ),
