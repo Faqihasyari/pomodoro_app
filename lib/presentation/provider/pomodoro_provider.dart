@@ -25,7 +25,6 @@ class PomodoroProvider with ChangeNotifier {
   // Getter
   int get remainingTime => _remainingTime;
   bool get isRunning => _isRunning;
-  bool get isRunning => _isRunning;
   bool get isInitializated => _isInitializated;
   bool get isFocusSession => _isFocusSession;
   String get sessionType => _isFocusSession ? 'Focus' : 'Rest';

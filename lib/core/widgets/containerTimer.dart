@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
 import 'package:pomodoro_app/core/models/dotLine.dart';
@@ -28,7 +29,7 @@ class _ContainertimerState extends State<Containertimer> {
       return '$m:$s';
     }
     return Container(
-      height: 820,
+      height: 1020,
       width: 500,
       decoration: BoxDecoration(
         color: timerContainer,
@@ -133,6 +134,22 @@ class _ContainertimerState extends State<Containertimer> {
         ),
       ],
     ),
+    DottedLine(
+      height: 4,
+      color: Colors.black,
+    ),
+    if(pomodoro.isRunning)
+      Lottie.asset('assets/lottie/startTimer.json', repeat: true, animate: true, width: 150)
+      else Container(
+        width: 400,
+        height: 200,
+        decoration: BoxDecoration(
+                color: bgContainer,
+                border: Border.all(width: 3, color: outlineBorder),
+                borderRadius: BorderRadius.circular(20)
+              ),
+        child: const Icon(Icons.access_time, size: 150, color: Colors.black,)),
+    
       DottedLine(
         color: Colors.black,
         height: 4,
@@ -145,7 +162,7 @@ class _ContainertimerState extends State<Containertimer> {
                 border: Border.all(width: 3, color: outlineBorder),
                 borderRadius: BorderRadius.circular(20)
               ),
-
+              
               child: Center(child: Text(formatTime(pomodoro.remainingTime), style: fontTimer,))),
             SizedBox(height: 30,),
             GestureDetector(
@@ -175,8 +192,6 @@ class _ContainertimerState extends State<Containertimer> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
-              // onTap: () =>
-              //   pomodoro.isRunning ? context.read<PomodoroProvider>().pause() :  context.read<PomodoroProvider>().start(),
               onTap: () {
                 final currentFocus = int.tryParse(_focusController.text) ?? 25;
                 final currentRest = int.tryParse(_restController.text) ?? 5;
@@ -186,15 +201,6 @@ class _ContainertimerState extends State<Containertimer> {
                   return;
                 }
                 pomodoro.start();
-                // if (pomodoro.isRunning) {
-                //   context.read<PomodoroProvider>().pause();
-                // } else {
-                //   final status = context.read<PomodoroProvider>().start();
-                //   if (status == PomodoroActionStatus.notInitialized) {
-                //     showCenteredNotification(context, 'Tekan SET TIMER dulu blog',);
-
-                //   }
-                // }
               },
               
               child: Container(
@@ -219,9 +225,6 @@ class _ContainertimerState extends State<Containertimer> {
                 if (!context.read<PomodoroProvider>().isInitializated) {
                   showCenteredNotification(context, 'Timernya di start dulu kocak');
                   return;
-                  // ScaffoldMessenger.of(context).showSnackBar(
-                  //   const SnackBar(content: Text('Timernya atur dulu kocag'), backgroundColor: btn,)
-                  // );
                 }
                 context.read<PomodoroProvider>().reset();
               },
