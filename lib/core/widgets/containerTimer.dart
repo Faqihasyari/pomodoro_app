@@ -21,14 +21,19 @@ class _ContainertimerState extends State<Containertimer> {
   final _restController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-          final pomodoro = context.watch<PomodoroProvider>();
+    // responsive declare
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
+    // catch pomodoro provider
+          final pomodoro = context.watch<PomodoroProvider>();
      String formatTime(int seconds) {
       final m = (seconds ~/ 60).toString().padLeft(2, '0');
       final s = (seconds % 60).toString().padLeft(2, '0');
       return '$m:$s';
     }
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10),
       height: 1020,
       width: 500,
       decoration: BoxDecoration(
@@ -54,8 +59,8 @@ class _ContainertimerState extends State<Containertimer> {
           children: [
             Text('Waktu (min)', style: fontBtnTimer,),
             SizedBox(
-              width: 150,
-              height: 55,
+              width: screenWidth * 0.3,
+              height: screenWidth * 0.1,
               child: TextField(
                 maxLines: null,
                 style: fontBtnTimer,
@@ -95,8 +100,8 @@ class _ContainertimerState extends State<Containertimer> {
           children: [
             Text('Istirahat (min)', style: fontBtnTimer,),
             SizedBox(
-              width: 150,
-              height: 55,
+              width: screenWidth * 0.3,
+              height: screenWidth * 0.1,
               child: TextField(
                 style: fontBtnTimer,
                 maxLines: null,
@@ -139,10 +144,18 @@ class _ContainertimerState extends State<Containertimer> {
       color: Colors.black,
     ),
     if(pomodoro.isRunning)
-      Lottie.asset('assets/lottie/startTimer.json', repeat: true, animate: true, width: 150)
+      Container(
+        width: screenWidth * 0.8,
+        height: screenHeight * 0.2,
+        decoration: BoxDecoration(
+                color: bgContainer,
+                border: Border.all(width: 3, color: outlineBorder),
+                borderRadius: BorderRadius.circular(20)
+              ),
+        child: Lottie.asset('assets/lottie/startTimer.json', repeat: true, animate: true, width: 150))
       else Container(
-        width: 400,
-        height: 200,
+        width: screenWidth * 0.8,
+        height: screenHeight * 0.2,
         decoration: BoxDecoration(
                 color: bgContainer,
                 border: Border.all(width: 3, color: outlineBorder),
@@ -199,8 +212,9 @@ class _ContainertimerState extends State<Containertimer> {
                 if (!pomodoro.isInitializated || currentFocus != pomodoro.activeFocusMinutes || currentRest != pomodoro.activeRestMinutes) {
                   showCenteredNotification(context, 'Tekan SET TIMER dulu blog',);
                   return;
+                } else {
+                  pomodoro.isRunning ? pomodoro.pause() : pomodoro.start();
                 }
-                pomodoro.start();
               },
               
               child: Container(
