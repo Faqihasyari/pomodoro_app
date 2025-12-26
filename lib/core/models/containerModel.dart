@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Containermodel {
-  final Icon icon;
-  final String lottieAsset;
+  final IconData? icon;
+  final String? lottieAsset;
 
-  Containermodel({required this.icon, required this.lottieAsset});
+  Containermodel({this.icon, this.lottieAsset});
 
-  Containermodel container({Icon? icon, String? lottieAsset}){
+  Containermodel container({IconData? icon, String? lottieAsset}){
     return Containermodel(icon: icon ?? this.icon, lottieAsset: lottieAsset?? this.lottieAsset);
   }
 }

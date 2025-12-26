@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
+import 'package:pomodoro_app/core/models/containerItem.dart';
+import 'package:pomodoro_app/core/models/containerModel.dart';
 import 'package:pomodoro_app/core/models/dotLine.dart';
 import 'package:pomodoro_app/core/models/notification.dart';
 import 'package:pomodoro_app/presentation/provider/pomodoro_provider.dart';
@@ -24,6 +26,15 @@ class _ContainertimerState extends State<Containertimer> {
     // responsive declare
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
+    // container model
+    final animasiRunning = Containermodel(
+  lottieAsset: 'assets/lottie/loading.json',
+);
+
+final animasiStop = Containermodel(
+  icon: Icons.access_time,
+);
 
     // catch pomodoro provider
           final pomodoro = context.watch<PomodoroProvider>();
@@ -144,25 +155,9 @@ class _ContainertimerState extends State<Containertimer> {
       color: Colors.black,
     ),
     if(pomodoro.isRunning)
-      Container(
-        width: screenWidth * 0.8,
-        height: screenHeight * 0.2,
-        decoration: BoxDecoration(
-                color: bgContainer,
-                border: Border.all(width: 3, color: outlineBorder),
-                borderRadius: BorderRadius.circular(20)
-              ),
-        child: Lottie.asset('assets/lottie/startTimer.json', repeat: true, animate: true, width: 150))
-      else Container(
-        width: screenWidth * 0.8,
-        height: screenHeight * 0.2,
-        decoration: BoxDecoration(
-                color: bgContainer,
-                border: Border.all(width: 3, color: outlineBorder),
-                borderRadius: BorderRadius.circular(20)
-              ),
-        child: const Icon(Icons.access_time, size: 150, color: Colors.black,)),
-    
+    Containeritem(lottie: animasiRunning,)
+      else 
+      Containeritem(icon: animasiStop,),
       DottedLine(
         color: Colors.black,
         height: 4,
