@@ -260,7 +260,7 @@ final animasiStop = Containermodel(
         color: Colors.black,
         height: 4,
       ),
-          Text('Total Fokus ${pomodoro.totalFocusMinutes} min', style: fontBtnTimer,)
+          Expanded(child: Text('Total Fokus ${pomodoro.totalFocusMinutes} min', style: fontBtnTimer,))
         ],
       ),
     );
