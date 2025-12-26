@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:pomodoro_app/core/models/app_data.dart';
 
@@ -7,6 +9,8 @@ enum PomodoroActionStatus { success, notInitialized, notRunning }
 
 
 class PomodoroProvider with ChangeNotifier {
+  // declare audio
+  late final AudioPlayer _audioPlayer;
   late int _focusDuration;  
   late int _restDuration;    
   int _remainingTime = 0;
@@ -19,8 +23,8 @@ class PomodoroProvider with ChangeNotifier {
 
   PomodoroProvider({required Box<AppData> dataBox}) : _dataBox = dataBox{
     _remainingTime = 25 * 60;
+    _audioPlayer = AudioPlayer();
   }
-
 
   // Getter
   int get remainingTime => _remainingTime;
@@ -55,6 +59,30 @@ class PomodoroProvider with ChangeNotifier {
     _isInitializated = true;
     notifyListeners();
   }
+
+  void _switchNotifikasi() {
+    if (_isFocusSession) {
+      _totalFocusSeconds += _focusDuration;
+      _isFocusSession = false;
+      _remainingTime = _restDuration;
+    } else {
+      _isFocusSession = true;
+      _remainingTime = _focusDuration;
+    }
+
+    _playNotificationSound();
+    _startTimer();
+    notifyListeners();
+  }
+
+  Future<void> _playNotificationSound() async {
+    try {
+      await _audioPlayer.play(AssetSource('assets/audio/notifikasi.mp3'));
+    } catch (e) {
+      print('Gagal memnunculkan suara $e');
+    }
+  }
+
   
 
 
@@ -126,6 +154,7 @@ class PomodoroProvider with ChangeNotifier {
 
   @override
   void dispose() {
+    _audioPlayer.dispose();
     _timer?.cancel();
     super.dispose();
   }
