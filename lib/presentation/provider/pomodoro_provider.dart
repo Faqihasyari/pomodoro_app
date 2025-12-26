@@ -60,21 +60,6 @@ class PomodoroProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void _switchNotifikasi() {
-    if (_isFocusSession) {
-      _totalFocusSeconds += _focusDuration;
-      _isFocusSession = false;
-      _remainingTime = _restDuration;
-    } else {
-      _isFocusSession = true;
-      _remainingTime = _focusDuration;
-    }
-
-    _playNotificationSound();
-    _startTimer();
-    notifyListeners();
-  }
-
   Future<void> _playNotificationSound() async {
     try {
       await _audioPlayer.play(AssetSource('assets/audio/notifikasi.mp3'));
@@ -82,9 +67,6 @@ class PomodoroProvider with ChangeNotifier {
       print('Gagal memnunculkan suara $e');
     }
   }
-
-  
-
 
   void _startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -118,6 +100,7 @@ class PomodoroProvider with ChangeNotifier {
       _isFocusSession = true;
       _remainingTime = _focusDuration;
     }
+    _playNotificationSound();
     _startTimer();
     notifyListeners();
   }
