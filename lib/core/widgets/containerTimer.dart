@@ -45,8 +45,8 @@ final animasiStop = Containermodel(
     }
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
-      height: 1020,
-      width: 500,
+      height: screenHeight * 1,
+      width: screenWidth * 1,
       decoration: BoxDecoration(
         color: timerContainer,
         border: Border.all(color: Colors.black,width: 4),
@@ -163,8 +163,8 @@ final animasiStop = Containermodel(
         height: 4,
       ),
             Container(
-              width: 400,
-              height: 200,
+              width: screenWidth * 0.8,
+        height: screenHeight * 0.2,
               decoration: BoxDecoration(
                 color: bgContainer,
                 border: Border.all(width: 3, color: outlineBorder),
@@ -181,8 +181,8 @@ final animasiStop = Containermodel(
               },
               child: Container(
                 
-                width: 400,
-                height: 70,
+                width: screenWidth * 0.8,
+                height: screenHeight * 0.07,
                 decoration: BoxDecoration(
                   color: btnContainer,
                   borderRadius: BorderRadius.circular(20),
@@ -214,8 +214,8 @@ final animasiStop = Containermodel(
               
               child: Container(
                 
-                width: 195,
-                height: 70,
+                width: screenWidth * 0.39,
+                height: screenHeight * 0.07,
                 decoration: BoxDecoration(
                   color: startBtn,
                   borderRadius: BorderRadius.circular(20),
@@ -239,8 +239,8 @@ final animasiStop = Containermodel(
               },
               child: Container(
                 
-                width: 195,
-                height: 70,
+                width: screenWidth * 0.39,
+                height: screenHeight * 0.07,
                 decoration: BoxDecoration(
                   color: resetBtn,
                   borderRadius: BorderRadius.circular(20),
