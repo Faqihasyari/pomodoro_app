@@ -32,14 +32,14 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: [
                 Text('APLIKASI POMODORO', style: GoogleFonts.audiowide(fontSize: 28),),
-                  DottedLine(
+                  const DottedLine(
                   color: Colors.white,
                   height: 4,
                 ),
                 SizedBox(
                   width: screenWidth * 0.8,
       height: screenHeight * 0.4,
-                  child: Stack(
+                  child: const Stack(
                     alignment: AlignmentGeometry.center,
                     children: [
                   
@@ -48,18 +48,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                DottedLine(
+                const DottedLine(
                   color: Colors.white,
                   height: 4,
                 ),
                 // input timer pomodoro
-                Containertimer(),
-                DottedLine(
+                const Containertimer(),
+                const DottedLine(
                   color: Colors.white,
                   height: 4,
                 ),
-                Triggerwidgets(),
-                DottedLine(
+                const Triggerwidgets(),
+                const DottedLine(
                   color: Colors.white,
                   height: 4,
                 ),

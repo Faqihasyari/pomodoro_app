@@ -1,5 +1,6 @@
+// ignore_for_file: file_names, deprecated_member_use
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
@@ -27,7 +28,7 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
     return Container(
       width: screenWidth * 0.8,
       height: screenHeight * 0.4,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: bgContainerTrigger.withOpacity(0.8),
         borderRadius: BorderRadius.circular(5),
@@ -37,15 +38,15 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Ke Distract kenapa banh?', style: frindly,),
-          DottedLineTriggers(color: Colors.black, height: 3,),
+          const DottedLineTriggers(color: Colors.black, height: 3,),
           Row(
             children: [
               Expanded(child: TextField(
                 controller: triggerController,
                 decoration: InputDecoration(
                   prefix: const SizedBox(width: 3,),
-                   enabledBorder: UnderlineInputBorder(
-                        borderSide: const BorderSide(
+                   enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
                           color: garis,
                           width: 2,
                         ),),
@@ -53,19 +54,19 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
                         hintStyle: GoogleFonts.mansalva(letterSpacing: 2)
                 ),
               )),
-              SizedBox(width: 10,),
+              const SizedBox(width: 10,),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   elevation: 2,
                   
                   backgroundColor: Colors.white,
-                  minimumSize: Size(20, 50),
+                  minimumSize: const Size(20, 50),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(6)),
-                  side: BorderSide(width: 3, color: Colors.black),
+                  side: const BorderSide(width: 3, color: Colors.black),
                 ),
                 onPressed: () {
                 context.read<TriggerProvider>().addTrigger(triggerController.text);
-              }, child: Icon(Icons.add, color: Colors.black,))
+              }, child: const Icon(Icons.add, color: Colors.black,))
             ],
           ),
           Expanded(child: ListView.builder(
@@ -87,13 +88,13 @@ class TriggerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.only(bottom: 5),
+    return Padding(padding: const EdgeInsets.only(bottom: 5),
     child: Row(
       children: [
         Expanded(child: Text(trigger.trigger)),
         IconButton(onPressed: () {
           context.read<TriggerProvider>().deleteTrigger(trigger.id);
-        }, icon: Icon(Icons.close))
+        }, icon: const Icon(Icons.close))
       ],
     ),
     );

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
@@ -11,7 +13,7 @@ class CuteTodoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _taskController = TextEditingController();
+    final taskController = TextEditingController();
     final tasks = context.watch<TaskProvider>().tasks;
 
     final screenWidth = MediaQuery.of(context).size.width;
@@ -47,7 +49,7 @@ class CuteTodoPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
-                    controller: _taskController,
+                    controller: taskController,
                     decoration: InputDecoration(
                       hintText: "Add task...",
                       prefix: const SizedBox(width: 8),
@@ -58,8 +60,8 @@ class CuteTodoPage extends StatelessWidget {
                         horizontal: 12,
                         vertical: 12,
                       ),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: const BorderSide(
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
                           color: garis,
                           width: 2,
                         ),
@@ -67,12 +69,12 @@ class CuteTodoPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: btn,
-                    side: BorderSide(color: garis, width: 2),
-                    minimumSize: Size(20, 50),
+                    side: const BorderSide(color: garis, width: 2),
+                    minimumSize: const Size(20, 50),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6),
@@ -81,9 +83,9 @@ class CuteTodoPage extends StatelessWidget {
                   ),
                   onPressed: () {
                     context.read<TaskProvider>().addTask(
-                      _taskController.text,
+                      taskController.text,
                     );
-                    _taskController.clear();
+                    taskController.clear();
                   },
                   child: const Icon(Icons.add, color: garis,),
                 ),

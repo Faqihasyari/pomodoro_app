@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class DottedLine extends StatelessWidget {
@@ -72,33 +74,4 @@ class DottedLineTriggers extends StatelessWidget {
       ),
     );
   }
-}
-
-class _DottedLinePainterTriggers extends CustomPainter {
-  final Color color;
-
-  _DottedLinePainterTriggers(this.color);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = size.height;
-
-    const dashWidth = 5;
-    const dashSpace = 4;
-    double startX = 0;
-
-    while (startX < size.width) {
-      canvas.drawLine(
-        Offset(startX, 0),
-        Offset(startX + dashWidth, 0),
-        paint,
-      );
-      startX += dashWidth + dashSpace;
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

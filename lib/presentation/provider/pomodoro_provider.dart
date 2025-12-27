@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pomodoro_app/core/models/app_data.dart';
@@ -65,7 +64,9 @@ class PomodoroProvider with ChangeNotifier {
     try {
       await _audioPlayer.play(AssetSource('assets/audio/notifikasi.mp3'));
     } catch (e) {
-      print('Gagal memnunculkan suara $e');
+      if (kDebugMode) {
+        print('Gagal memnunculkan suara $e');
+      }
     }
   }
 

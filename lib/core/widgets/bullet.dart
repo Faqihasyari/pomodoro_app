@@ -6,7 +6,7 @@ class Bullet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.width * 0.78),
+      padding: const EdgeInsets.only(bottom: 370),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(

@@ -1,5 +1,6 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:pomodoro_app/core/constants/color.dart';
 import 'package:pomodoro_app/core/constants/font.dart';
 import 'package:pomodoro_app/core/models/containerItem.dart';
@@ -42,14 +43,14 @@ final animasiStop = Containermodel(
       return '$m:$s';
     }
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       height: screenHeight * 1,
       width: screenWidth * 1,
       decoration: BoxDecoration(
         color: timerContainer,
         border: Border.all(color: Colors.black,width: 4),
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [BoxShadow(
+        boxShadow: const [BoxShadow(
           offset: Offset(6, 6),
           color: Colors.black
         )]
@@ -57,8 +58,8 @@ final animasiStop = Containermodel(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Puuuuuuqi Pomodoro', style: fontHeaderTimer,),
-          SizedBox(height: 20,),
+          Text('Cihuy Pomodoro', style: fontHeaderTimer,),
+          const SizedBox(height: 20,),
           Row(
       spacing: 20,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -66,7 +67,10 @@ final animasiStop = Containermodel(
         Column(
           spacing: 5,
           children: [
-            Text('Waktu (min)', style: fontBtnTimer,),
+            SizedBox(
+              width: 100,
+              height: 30,
+              child: Expanded(child: Text('Waktu (min)', style: fontBtnTimer,))),
             SizedBox(
               width: screenWidth * 0.3,
               height: screenWidth * 0.1,
@@ -78,7 +82,7 @@ final animasiStop = Containermodel(
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
               isDense: true,
-              contentPadding: EdgeInsets.symmetric(
+              contentPadding: const EdgeInsets.symmetric(
                 horizontal: 8,
                 vertical: 10,
               ),
@@ -86,7 +90,7 @@ final animasiStop = Containermodel(
               fillColor: Colors.transparent,
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: outlineBorder,
                     width: 3,
                   ),
@@ -94,7 +98,7 @@ final animasiStop = Containermodel(
               
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: outlineBorder,
                     width: 3,
                   ),
@@ -107,7 +111,10 @@ final animasiStop = Containermodel(
         Column(
           spacing: 5,
           children: [
-            Text('Istirahat (min)', style: fontBtnTimer,),
+            SizedBox(
+              width: 100,
+              height: 30,
+              child: Expanded(child: Text('Istirahat (min)', style: fontBtnTimer,))),
             SizedBox(
               width: screenWidth * 0.3,
               height: screenWidth * 0.1,
@@ -120,7 +127,7 @@ final animasiStop = Containermodel(
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
               isDense: true,
-              contentPadding: EdgeInsets.symmetric(
+              contentPadding: const EdgeInsets.symmetric(
                 horizontal: 8,
                 vertical: 10,
               ),
@@ -128,7 +135,7 @@ final animasiStop = Containermodel(
               fillColor: Colors.transparent,
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: outlineBorder,
                     width: 3,
                   ),
@@ -136,7 +143,7 @@ final animasiStop = Containermodel(
               
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: outlineBorder,
                     width: 3,
                   ),
@@ -148,7 +155,7 @@ final animasiStop = Containermodel(
         ),
       ],
     ),
-    DottedLine(
+    const DottedLine(
       height: 4,
       color: Colors.black,
     ),
@@ -156,7 +163,7 @@ final animasiStop = Containermodel(
     Containeritem(lottie: animasiRunning,)
       else 
       Containeritem(icon: animasiStop,),
-      DottedLine(
+      const DottedLine(
         color: Colors.black,
         height: 4,
       ),
@@ -170,7 +177,7 @@ final animasiStop = Containermodel(
               ),
               
               child: Center(child: Text(formatTime(pomodoro.remainingTime), style: fontTimer,))),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             GestureDetector(
               onTap: () {
                 final focus = int.tryParse(_focusController.text) ?? 25;
@@ -185,7 +192,8 @@ final animasiStop = Containermodel(
                   color: btnContainer,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(width: 3, color: Colors.black),
-                  boxShadow: [BoxShadow(
+                  boxShadow: const [
+                    BoxShadow(
                     color: Colors.black,
                     offset: Offset(5, 5)
                   )]
@@ -193,7 +201,7 @@ final animasiStop = Containermodel(
                 child: Center(child: Text('SET TIMER', style: btnSetTimer,)),
               ),
             ),
-            SizedBox(height: 20,)
+             const SizedBox(height: 20,)
           ,Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -218,7 +226,7 @@ final animasiStop = Containermodel(
                   color: startBtn,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(width: 3, color: Colors.black),
-                  boxShadow: [BoxShadow(
+                  boxShadow: const [BoxShadow(
                     color: Colors.black,
                     offset: Offset(5, 5)
                   )]
@@ -226,7 +234,7 @@ final animasiStop = Containermodel(
                 child: Center(child: Text(pomodoro.isRunning ? 'PAUSE' :'START', style: btnSetTimer,)),
               ),
                           ),
-            SizedBox(width: 10,),
+            const SizedBox(width: 10,),
             GestureDetector(
               onTap: () {
                 if (!context.read<PomodoroProvider>().isInitializated) {
@@ -243,7 +251,7 @@ final animasiStop = Containermodel(
                   color: resetBtn,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(width: 3, color: Colors.black),
-                  boxShadow: [BoxShadow(
+                  boxShadow: const [BoxShadow(
                     color: Colors.black,
                     offset: Offset(5, 5)
                   )]
@@ -254,7 +262,7 @@ final animasiStop = Containermodel(
               
             ],
           ),
-          DottedLine(
+          const DottedLine(
         color: Colors.black,
         height: 4,
       ),

@@ -4,7 +4,6 @@ import 'package:pomodoro_app/core/models/app_data.dart';
 import 'package:pomodoro_app/core/models/task.dart';
 import 'package:pomodoro_app/core/models/trigger.dart';
 import 'package:pomodoro_app/presentation/provider/pomodoro_provider.dart';
-import 'package:pomodoro_app/presentation/screens/home_page.dart';
 import 'package:pomodoro_app/presentation/screens/provider.dart';
 import 'package:pomodoro_app/presentation/screens/splash_screen.dart';
 import 'package:pomodoro_app/presentation/screens/trigger_provider.dart';
@@ -39,10 +38,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: SplashScreen(),
     );
   }
 }
