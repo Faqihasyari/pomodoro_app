@@ -21,6 +21,9 @@ class Containeritem extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     
     final pomodoro = context.watch<PomodoroProvider>();
+    
+    final isFocusActive = pomodoro.isRunning && pomodoro.isFocusSession;
+    
     return
      Container(
       width: screenWidth * 0.8,
@@ -30,7 +33,14 @@ class Containeritem extends StatelessWidget {
                 border: Border.all(width: 3, color: outlineBorder),
                 borderRadius: BorderRadius.circular(20)
               ),
-              child: pomodoro.isRunning ? Lottie.asset('assets/lottie/startTimer.json', repeat: true, animate: true, width: 150) : Lottie.asset('assets/lottie/restTimer.json', repeat: true, animate: true, width: 150));
+              child: Lottie.asset(
+        isFocusActive 
+            ? 'assets/lottie/startTimer.json' 
+            : 'assets/lottie/restTimer.json',
+        repeat: true,
+        animate: true,
+        width: 150,
+      ));
     
   }
 }

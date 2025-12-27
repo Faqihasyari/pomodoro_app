@@ -77,6 +77,8 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
               }, child: const Icon(Icons.add, color: Colors.black,))
             ],
           ),
+            const SizedBox(height: 15),
+
           Expanded(child: ListView.builder(
             itemCount: trigger.length,
             itemBuilder: (context, index) {
@@ -100,9 +102,11 @@ class TriggerItem extends StatelessWidget {
     child: Row(
       children: [
         Expanded(child: Text(trigger.trigger, style: scroller,)),
-        IconButton(onPressed: () {
-          context.read<TriggerProvider>().deleteTrigger(trigger.id);
-        }, icon: const Icon(Icons.close))
+        InkWell(
+            onTap: () {
+              context.read<TriggerProvider>().deleteTrigger(trigger.id);
+            },
+            child: Image.asset('assets/icon/closeIcon.png', scale: 20,))
       ],
     ),
     );

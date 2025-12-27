@@ -148,12 +148,11 @@ class TaskItem extends StatelessWidget {
               style: scroller,
             ),
           ),
-          IconButton(
-            onPressed: () {
+          InkWell(
+            onTap: () {
               context.read<TaskProvider>().deleteTask(task.id);
             },
-            icon: const Icon(Icons.close, size: 18),
-          ),
+            child: Image.asset('assets/icon/closeIcon.png', scale: 20,))
         ],
       ),
     );
