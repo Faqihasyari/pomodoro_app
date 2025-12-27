@@ -5,24 +5,23 @@ class Bullet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-                        left: 50,
-                        top: 5,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(
-                            12,
-                            (i) => Container(
-                              margin: const EdgeInsets.symmetric(horizontal: 4),
-                              width: 9,
-                              height: 9,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
+    return Padding(
+      padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.width * 0.78),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(
+          12,
+          (i) => Container(
+            margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.013),
+            width: 9,
+            height: 9,
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(100),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

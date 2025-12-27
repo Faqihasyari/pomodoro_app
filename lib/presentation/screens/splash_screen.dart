@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     return Scaffold(
       body: Center(
-        child: Lottie.asset('assets/lottie/notifikasi.json', width: 200, height: 200, repeat: true, animate: true),
+        child: Lottie.asset('assets/lottie/loading.json', width: 350, height: 350, repeat: true, animate: true),
       ),
     );
   }

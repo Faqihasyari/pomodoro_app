@@ -3,6 +3,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pomodoro_app/core/models/app_data.dart';
 
 enum PomodoroActionStatus { success, notInitialized, notRunning }
@@ -95,6 +96,7 @@ class PomodoroProvider with ChangeNotifier {
       
       // mulai jeda
       _isFocusSession = false;
+      Lottie.asset('assets/lottie.restTimer.json');
       _remainingTime = _restDuration;
     } else {
       _isFocusSession = true;

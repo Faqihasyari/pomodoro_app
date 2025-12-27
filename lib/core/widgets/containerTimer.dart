@@ -29,11 +29,9 @@ class _ContainertimerState extends State<Containertimer> {
 
     // container model
     final animasiRunning = Containermodel(
-  lottieAsset: 'assets/lottie/loading.json',
 );
 
 final animasiStop = Containermodel(
-  icon: Icons.access_time,
 );
 
     // catch pomodoro provider

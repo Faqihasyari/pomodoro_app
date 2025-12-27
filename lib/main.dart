@@ -6,6 +6,7 @@ import 'package:pomodoro_app/core/models/trigger.dart';
 import 'package:pomodoro_app/presentation/provider/pomodoro_provider.dart';
 import 'package:pomodoro_app/presentation/screens/home_page.dart';
 import 'package:pomodoro_app/presentation/screens/provider.dart';
+import 'package:pomodoro_app/presentation/screens/splash_screen.dart';
 import 'package:pomodoro_app/presentation/screens/trigger_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+      home: const SplashScreen(),
     );
   }
 }

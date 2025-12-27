@@ -19,6 +19,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+        final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     
     return SafeArea(
       child: Scaffold(
@@ -34,8 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 4,
                 ),
                 SizedBox(
-                  width: 300,
-                  height: 300,
+                  width: screenWidth * 0.8,
+      height: screenHeight * 0.4,
                   child: Stack(
                     alignment: AlignmentGeometry.center,
                     children: [

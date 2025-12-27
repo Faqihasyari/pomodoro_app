@@ -20,9 +20,13 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
   Widget build(BuildContext context) {
     final triggerController = TextEditingController();
     final trigger = context.watch<TriggerProvider>().triggers;
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
-      width: 300,
-      height: 300,
+      width: screenWidth * 0.8,
+      height: screenHeight * 0.4,
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: bgContainerTrigger.withOpacity(0.8),
@@ -32,7 +36,7 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Ke trigger kenapa banh?', style: frindly,),
+          Text('Ke Distract kenapa banh?', style: frindly,),
           DottedLineTriggers(color: Colors.black, height: 3,),
           Row(
             children: [
@@ -45,7 +49,7 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
                           color: garis,
                           width: 2,
                         ),),
-                        hintText: 'Tambahkan Trigger...',
+                        hintText: 'Tambahkan Distract...',
                         hintStyle: GoogleFonts.mansalva(letterSpacing: 2)
                 ),
               )),

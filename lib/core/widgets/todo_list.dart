@@ -14,10 +14,14 @@ class CuteTodoPage extends StatelessWidget {
     final _taskController = TextEditingController();
     final tasks = context.watch<TaskProvider>().tasks;
 
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+
 
     return  Container(
-        width: 300,
-        height: 300,
+        width: screenWidth * 0.8,
+      height: screenHeight * 0.4,
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           color: Colors.white,
