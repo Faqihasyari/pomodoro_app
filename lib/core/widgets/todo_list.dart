@@ -49,8 +49,11 @@ class CuteTodoPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    style: fontBtnTimer,
+                    cursorColor: Colors.black,
                     controller: taskController,
                     decoration: InputDecoration(
+                      
                       hintText: "Add task...",
                       prefix: const SizedBox(width: 8),
                       hintStyle: GoogleFonts.mansalva(letterSpacing: 2),
@@ -60,11 +63,20 @@ class CuteTodoPage extends StatelessWidget {
                         horizontal: 12,
                         vertical: 12,
                       ),
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: garis,
+                          width: 2,
+                        ),
+                      ),
+                      
+
                       enabledBorder: const UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: garis,
                           width: 2,
                         ),
+
                       ),
                     ),
                   ),
@@ -108,23 +120,6 @@ class CuteTodoPage extends StatelessWidget {
       );
     
   }
-
-  // Widget _todoItem(String title) {
-  //   return Padding(
-  //     padding: const EdgeInsets.symmetric(vertical: 6),
-  //     child: Row(
-  //       children: [
-  //         Checkbox(
-  //           value: false,
-  //           onChanged: (_) {},
-  //           shape: const CircleBorder(),
-  //         ),
-  //         Expanded(child: Text(title, style: const TextStyle(fontSize: 16))),
-  //         IconButton(onPressed: () {}, icon: const Icon(Icons.close, size: 18)),
-  //       ],
-  //     ),
-  //   );
-  // }
 }
 
 
@@ -150,7 +145,7 @@ class TaskItem extends StatelessWidget {
           Expanded(
             child: Text(
               task.task, 
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
+              style: scroller,
             ),
           ),
           IconButton(

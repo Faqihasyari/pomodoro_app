@@ -7,3 +7,4 @@ var fontBtnTimer = GoogleFonts.mansalva(fontSize: 18, color: btnColor, fontWeigh
 var fontHeaderTimer = GoogleFonts.boogaloo(fontSize: 43, color: colorHeader, );
 var btnSetTimer = GoogleFonts.boogaloo(fontSize: 22, color: outlineBorder, );
 var fontTimer = GoogleFonts.jetBrainsMono(fontSize: 62, fontWeight: FontWeight.bold);
+var scroller = GoogleFonts.mansalva(fontSize: 18);

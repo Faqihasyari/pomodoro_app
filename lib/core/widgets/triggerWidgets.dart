@@ -42,8 +42,16 @@ class _TriggerwidgetsState extends State<Triggerwidgets> {
           Row(
             children: [
               Expanded(child: TextField(
+                cursorColor: Colors.black,
+                style: fontBtnTimer,
                 controller: triggerController,
                 decoration: InputDecoration(
+                  focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(
+                          color: garis,
+                          width: 2,
+                        )
+                  ),
                   prefix: const SizedBox(width: 3,),
                    enabledBorder: const UnderlineInputBorder(
                         borderSide: BorderSide(
@@ -88,10 +96,10 @@ class TriggerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: const EdgeInsets.only(bottom: 5),
+    return Padding(padding: const EdgeInsets.symmetric(vertical: 6),
     child: Row(
       children: [
-        Expanded(child: Text(trigger.trigger)),
+        Expanded(child: Text(trigger.trigger, style: scroller,)),
         IconButton(onPressed: () {
           context.read<TriggerProvider>().deleteTrigger(trigger.id);
         }, icon: const Icon(Icons.close))

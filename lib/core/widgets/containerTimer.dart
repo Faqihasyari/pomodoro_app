@@ -64,94 +64,94 @@ final animasiStop = Containermodel(
       spacing: 20,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Column(
-          spacing: 5,
-          children: [
-            SizedBox(
-              width: 100,
-              height: 30,
-              child: Expanded(child: Text('Waktu (min)', style: fontBtnTimer,))),
-            SizedBox(
-              width: screenWidth * 0.3,
-              height: screenWidth * 0.1,
-              child: TextField(
-                maxLines: null,
-                style: fontBtnTimer,
-                expands: true,
-                      controller: _focusController,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-              isDense: true,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 8,
-                vertical: 10,
-              ),
-              filled: true,
-              fillColor: Colors.transparent,
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: outlineBorder,
-                    width: 3,
-                  ),
+        Expanded(
+          child: Column(
+            spacing: 5,
+            children: [
+              Text('Waktu (min)', style: fontBtnTimer,),
+              SizedBox(
+                width: screenWidth * 0.3,
+                height: screenWidth * 0.1,
+                child: TextField(
+                  cursorColor: Colors.black,
+                  maxLines: null,
+                  style: fontBtnTimer,
+                  expands: true,
+                        controller: _focusController,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                isDense: true,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 10,
                 ),
-              
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: outlineBorder,
-                    width: 3,
+                filled: true,
+                fillColor: Colors.transparent,
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(
+                      color: outlineBorder,
+                      width: 3,
+                    ),
                   ),
-                ),
-                      ),),
-                      
-            ),
-          ],
-        ),
-        Column(
-          spacing: 5,
-          children: [
-            SizedBox(
-              width: 100,
-              height: 30,
-              child: Expanded(child: Text('Istirahat (min)', style: fontBtnTimer,))),
-            SizedBox(
-              width: screenWidth * 0.3,
-              height: screenWidth * 0.1,
-              child: TextField(
-                style: fontBtnTimer,
-                maxLines: null,
                 
-                expands: true,
-                      controller: _restController,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-              isDense: true,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 8,
-                vertical: 10,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(
+                      color: outlineBorder,
+                      width: 3,
+                    ),
+                  ),
+                        ),),
+                        
               ),
-              filled: true,
-              fillColor: Colors.transparent,
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: outlineBorder,
-                    width: 3,
-                  ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: Column(
+            spacing: 5,
+            children: [
+              Text('Istirahat (min)', style: fontBtnTimer,),
+              SizedBox(
+                width: screenWidth * 0.3,
+                height: screenWidth * 0.1,
+                child: TextField(
+                  cursorColor: Colors.black,
+                  style: fontBtnTimer,
+                  maxLines: null,
+                  
+                  expands: true,
+                        controller: _restController,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                isDense: true,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 10,
                 ),
-              
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: outlineBorder,
-                    width: 3,
+                filled: true,
+                fillColor: Colors.transparent,
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(
+                      color: outlineBorder,
+                      width: 3,
+                    ),
                   ),
-                ),
-                      ),),
-                      
-            ),
-          ],
+                
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(
+                      color: outlineBorder,
+                      width: 3,
+                    ),
+                  ),
+                        ),),
+                        
+              ),
+            ],
+          ),
         ),
       ],
     ),
