@@ -19,8 +19,6 @@ class CuteTodoPage extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-
-
     return  Container(
         width: screenWidth * 0.8,
       height: screenHeight * 0.4,
