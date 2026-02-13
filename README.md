@@ -1,17 +1,47 @@
-# pomodoro_app
+# 🍅 Pomodoro Timer
 
-A new Flutter project.
+Aplikasi Pomodoro sederhana namun elegan yang membantumu fokus, produktif, dan menjaga keseimbangan kerja–istirahat dengan metode Pomodoro klasik — dikemas dalam antarmuka bergaya vintage yang estetis.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🌟 Fitur Utama
 
-A few resources to get you started if this is your first Flutter project:
+### ✅ Timer Pomodoro Klasik
+- 25 menit fokus → 5 menit istirahat pendek  
+- Setiap 4 sesi → 15–30 menit istirahat panjang  
+- Perhitungan waktu real-time dan stabil  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### ✅ Integrasi Daftar Tugas
+- Tambahkan tugas harian langsung di aplikasi  
+- Centang tugas yang sudah selesai  
+- Membantu memantau produktivitas setiap sesi  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# pomodoro_app
+### ✅ Desain UI Vintage
+- Palet warna hangat (cokelat, krem, oranye tua)  
+- Tipografi retro dengan animasi halus  
+- Tata letak responsif dan nyaman dilihat  
+
+### ✅ Splash Screen Animasi Lottie
+- Animasi custom dari Adobe After Effects  
+- Format `.json` dari LottieFiles  
+- Memberikan pengalaman awal yang menarik  
+
+### ✅ Ikon & Logo Personal
+- Menggunakan foto pribadi sebagai logo aplikasi  
+- Ikon tetap terlihat meskipun timer belum dimulai  
+
+---
+
+## 🛠 Teknologi yang Digunakan
+
+- **Framework:** Flutter  
+- **Bahasa:** Dart  
+- **Animasi:** Lottie  
+- **HTTP / Utilities:** Flutter SDK  
+- **Build Target:** APK (Android), Web (Firefox-compatible)  
+
+## 🚀 Cara Menjalankan Project
+
+1. Clone repository ini:
+   ```bash
+   git clone https://github.com/username/pomodoro-app.git
